@@ -1,4 +1,5 @@
 from chek_input import *
+from cripto import *
 import sys
 
 def binari(num):
@@ -25,13 +26,16 @@ def blocs(bin_code):
 def main(num):
     dec_code = []
     bin_code = []
+    cripto_list = []
     chek_input(num)
     for i in range(len(num)):
         dec_code.append(ord(num[i]))
     for i in range(len(dec_code)):
         bin_code.append(binari(dec_code[i]))
     blocs_list = blocs(bin_code)
-    print(blocs_list)
+    for i in range(len(blocs_list)):
+        cripto_list.append(contr_bit(blocs_list[i]))
+    print(cripto_list)
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
