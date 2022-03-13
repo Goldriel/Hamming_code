@@ -1,3 +1,6 @@
+from chek_input import *
+import sys
+
 def binari(num):
     b = ''
     while num > 0:
@@ -20,9 +23,9 @@ def blocs(bin_code):
     return blocs_list
 
 def main(num):
-    #num = "habar"
     dec_code = []
     bin_code = []
+    chek_input(num)
     for i in range(len(num)):
         dec_code.append(ord(num[i]))
     for i in range(len(dec_code)):
@@ -31,4 +34,9 @@ def main(num):
     print(blocs_list)
 
 if __name__ == "__main__":
-    main("habr")
+    if len(sys.argv) == 1:
+        main(input())
+    elif len(sys.argv) == 2:
+        main(sys.argv[1])
+    else:
+        print("input error")
